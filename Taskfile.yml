@@ -1,0 +1,48 @@
+version: '3'
+
+vars:
+  GOJSONSCHEMA: github.com/atombender/go-jsonschema@v0.23.1
+  GOJSONSCHEMA_FLAGS: --only-models --tags json
+
+tasks:
+  default:
+    desc: Generate model code from JSON schemas
+    cmds:
+      - task: generate
+
+  generate:
+    desc: Generate all model packages
+    deps:
+      - generate:v1_9
+      - generate:v1_10
+      - generate:v1_11
+
+  generate:v1_9:
+    dir: model/v1_9
+    cmds:
+      - >-
+        go run {{.GOJSONSCHEMA}} {{.GOJSONSCHEMA_FLAGS}}
+        --schema-root-type https://json.schemastore.org/aiproj-1.9.json=AIProj
+        --schema-output https://json.schemastore.org/aiproj-1.9.json=aiproj.gen.go
+        -p v1_9
+        ../../versions/v1_9/schema.json
+
+  generate:v1_10:
+    dir: model/v1_10
+    cmds:
+      - >-
+        go run {{.GOJSONSCHEMA}} {{.GOJSONSCHEMA_FLAGS}}
+        --schema-root-type https://json.schemastore.org/aiproj-1.10.json=AIProj
+        --schema-output https://json.schemastore.org/aiproj-1.10.json=aiproj.gen.go
+        -p v1_10
+        ../../versions/v1_10/schema.json
+
+  generate:v1_11:
+    dir: model/v1_11
+    cmds:
+      - >-
+        go run {{.GOJSONSCHEMA}} {{.GOJSONSCHEMA_FLAGS}}
+        --schema-root-type https://json.schemastore.org/aiproj-1.11.json=AIProj
+        --schema-output https://json.schemastore.org/aiproj-1.11.json=aiproj.gen.go
+        -p v1_11
+        ../../versions/v1_11/schema.json
