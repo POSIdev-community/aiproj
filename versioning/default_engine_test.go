@@ -6,7 +6,7 @@ import (
 	"github.com/stretchr/testify/require"
 
 	"github.com/POSIdev-community/aiproj/versioning"
-	v111 "github.com/POSIdev-community/aiproj/versions/v1_11"
+	v112 "github.com/POSIdev-community/aiproj/versions/v1_12"
 )
 
 func TestMustBuildDefaultEngine_EndToEndMigrationFrom18ToLatest(t *testing.T) {
@@ -26,5 +26,5 @@ func TestMustBuildDefaultEngine_EndToEndMigrationFrom18ToLatest(t *testing.T) {
 
 	migrated, err := engine.MigrateToLatest(input, detected)
 	require.NoError(t, err)
-	require.NoError(t, v111.Validate(migrated))
+	require.NoError(t, v112.Validate(migrated))
 }
