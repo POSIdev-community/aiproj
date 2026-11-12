@@ -11,7 +11,7 @@ type AIProj struct {
 	ApplyAllPMRules *bool `json:"ApplyAllPMRules,omitempty,omitzero"`
 
 	// Enable automated AI triage for project findings
-	AutomatedAiTriageEnabled *bool `json:"AutomatedAiTriageEnabled,omitempty,omitzero"`
+	AutomatedAiTriage *bool `json:"AutomatedAiTriage,omitempty,omitzero"`
 
 	// Minimum issue severity for automated AI triage
 	AutomatedAiTriageMinSeverity *AIProjAutomatedAiTriageMinSeverity `json:"AutomatedAiTriageMinSeverity,omitempty,omitzero"`
