@@ -79,7 +79,7 @@ func TestValidate_AcceptsAutomatedAiTriageFields(t *testing.T) {
 		"ProjectName": "demo",
 		"ProgrammingLanguages": ["Java"],
 		"ScanModules": ["StaticCodeAnalysis"],
-		"AutomatedAiTriageEnabled": true,
+		"AutomatedAiTriage": true,
 		"AutomatedAiTriageMinSeverity": "High"
 	}`)
 

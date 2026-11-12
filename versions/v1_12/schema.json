@@ -1065,8 +1065,8 @@
       "description": "Check for compliance with the security policy",
       "type": "boolean"
     },
-    "AutomatedAiTriageEnabled": {
-      "title": "Automated AI triage enabled",
+    "AutomatedAiTriage": {
+      "title": "Automated AI triage",
       "description": "Enable automated AI triage for project findings",
       "type": "boolean"
     },
