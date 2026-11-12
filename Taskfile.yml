@@ -16,6 +16,7 @@ tasks:
       - generate:v1_9
       - generate:v1_10
       - generate:v1_11
+      - generate:v1_12
 
   generate:v1_9:
     dir: model/v1_9
@@ -46,3 +47,13 @@ tasks:
         --schema-output https://json.schemastore.org/aiproj-1.11.json=aiproj.gen.go
         -p v1_11
         ../../versions/v1_11/schema.json
+
+  generate:v1_12:
+    dir: model/v1_12
+    cmds:
+      - >-
+        go run {{.GOJSONSCHEMA}} {{.GOJSONSCHEMA_FLAGS}}
+        --schema-root-type https://json.schemastore.org/aiproj-1.12.json=AIProj
+        --schema-output https://json.schemastore.org/aiproj-1.12.json=aiproj.gen.go
+        -p v1_12
+        ../../versions/v1_12/schema.json

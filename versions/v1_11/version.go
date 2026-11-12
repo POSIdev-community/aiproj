@@ -17,3 +17,21 @@ func Validate(data []byte) error {
 
 	return nil
 }
+
+func MigrateToV112(data []byte) ([]byte, error) {
+	migrated, err := versions.MigratePayloadToVersion(data, versions.V1_12, removeJavaScriptDependenciesPath)
+	if err != nil {
+		return nil, fmt.Errorf("migrate aiproj %s -> %s: %w", versions.V1_11, versions.V1_12, err)
+	}
+
+	return migrated, nil
+}
+
+// removeJavaScriptDependenciesPath drops the key 1.12 no longer allows: the JavaScript core never used it.
+func removeJavaScriptDependenciesPath(payload map[string]any) error {
+	if jsSettings, ok := payload["JavaScriptSettings"].(map[string]any); ok {
+		delete(jsSettings, "DependenciesPath")
+	}
+
+	return nil
+}
