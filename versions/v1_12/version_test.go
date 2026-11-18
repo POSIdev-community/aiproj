@@ -86,6 +86,22 @@ func TestValidate_AcceptsAutomatedAiTriageFields(t *testing.T) {
 	require.NoError(t, v1_12.Validate(input))
 }
 
+func TestValidate_AcceptsAsintSettings(t *testing.T) {
+	t.Parallel()
+
+	input := []byte(`{
+		"Version": "1.12",
+		"ProjectName": "demo",
+		"ProgrammingLanguages": ["Java"],
+		"ScanModules": ["Asint"],
+		"AsintSettings": {
+			"UseNaira": true
+		}
+	}`)
+
+	require.NoError(t, v1_12.Validate(input))
+}
+
 func TestValidate_AcceptsDotNetDependenciesPath(t *testing.T) {
 	t.Parallel()
 

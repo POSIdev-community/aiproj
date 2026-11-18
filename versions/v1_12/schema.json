@@ -992,6 +992,24 @@
         }
       }
     },
+    "AsintSettings": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "title": "ASINT scan options",
+      "additionalProperties": false,
+      "properties": {
+        "UseNaira": {
+          "title": "Use Naira",
+          "description": "Enable Naira integration for ASINT",
+          "type": [
+            "null",
+            "boolean"
+          ]
+        }
+      }
+    },
     "ProgrammingLanguages": {
       "title": "Active scanning languages",
       "type": "array",

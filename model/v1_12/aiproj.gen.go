@@ -10,6 +10,9 @@ type AIProj struct {
 	// Apply all PM rules
 	ApplyAllPMRules *bool `json:"ApplyAllPMRules,omitempty,omitzero"`
 
+	// AsintSettings corresponds to the JSON schema field "AsintSettings".
+	AsintSettings *AIProjAsintSettings `json:"AsintSettings,omitempty,omitzero"`
+
 	// Enable automated AI triage for project findings
 	AutomatedAiTriage *bool `json:"AutomatedAiTriage,omitempty,omitzero"`
 
@@ -71,6 +74,14 @@ type AIProj struct {
 	// Version corresponds to the JSON schema field "Version".
 	Version *AIProjVersion `json:"Version,omitempty,omitzero"`
 }
+
+type AIProjAsintSettings struct {
+	// Enable Naira integration for ASINT
+	UseNaira AIProjAsintSettingsUseNaira `json:"UseNaira,omitempty,omitzero"`
+}
+
+// Enable Naira integration for ASINT
+type AIProjAsintSettingsUseNaira *bool
 
 type AIProjAutomatedAiTriageMinSeverity string
 
